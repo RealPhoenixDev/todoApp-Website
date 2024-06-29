@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/src/web/output.css">
+</head>
+<body class="bg-background-900">
+    <div class="flex flex-col items-center">
+        <div class=" w-full max-w-[90svw] flex flex-col items-center  min-h-svh">
+            <div class="flex flex-col items-center">
+                <button class="w-64 h-10 bg-primary-500 my-8 rounded-3xl text-text-50 text-2xl" onclick="saveState()">Save</button>
+                <button class="w-64 h-10 bg-primary-500 my-8 rounded-3xl text-text-50 text-2xl" onclick="clearData()">Clear data</button>
+                <button class="min-w-10 min-h-10 bg-primary-500 m-2 rounded-full text-4xl text-text-50" onclick="addContainer(event.target)">+</button>
+            </div>
+            <div id="listsContainer" class="w-full min-h-64 flex justify-center flex-wrap bg-primary-800 rounded-3xl">
+            </div>
+            
+        </div>
+    </div>
+    <div id="elementTemplate" class="my-2 flex flex-row-reverse min-w-[95%] max-w-full mx-2 min-h-16 bg-primary-200 items-center rounded-3xl" style="display: none;">
+        <div class="flex flex-wrap h-full items-center flex-row-reverse">
+            <button class="min-w-8 min-h-8 bg-primary-500 m-1 rounded-full text-text-50 text-2xl" onclick="moveElementUp(event.target)" >↑</button>
+            <button class="min-w-8 min-h-8 bg-primary-500 m-1 rounded-full text-text-50 text-2xl" onclick="moveElementDown(event.target)">↓</button>
+            <button class="min-w-8 min-h-8 bg-primary-500 m-1 rounded-full text-text-50 text-2xl" onclick="removeElement(event.target)">–</button>
+        </div>
+        <h1 contenteditable="true" class="mx-3 text-center text-2xl min-w-0 flex-grow break-words focus:outline-none focus:border-[1px] focus:bg-primary-300 py-2 focus:border-text-50 focus:rounded-3xl " spellcheck="false"></h1>
+    </div>
+    <div id="exampleContainer" class="m-8 bg-primary-700 min-w-0 sm:min-w-[30rem] w-full max-w-[30rem] h-fit rounded-3xl flex flex-col items-center" style="display: none;">
+        <div contenteditable="true" maxlength="18" class=" mx-4 mt-8 pb-2 text-5xl text-center w-full focus:outline-none focus:border-[1px] focus:bg-primary-500 focus:border-text-50 focus:rounded-3xl text-text-50" spellcheck="false">Nosaukums</div>
+        <div class="flex flex-wrap h-full items-center">
+            <button class="min-w-8 min-h-8 bg-primary-500 m-1 rounded-full text-text-50 text-2xl" onclick="moveContainerUp(event.target)" >↑</button>
+            <button class="min-w-8 min-h-8 bg-primary-500 m-1 rounded-full text-text-50 text-2xl" onclick="moveContainerDown(event.target)">↓</button>
+            <button class="min-w-8 min-h-8 bg-primary-500 m-1 rounded-full text-text-50 text-2xl" onclick="removeContainer(event.target)">–</button>
+        </div>
+        <div class="flex flex-col items-center rounded-3xl w-full p-4 flex-grow bg-primary-400">
+            <!-- container -->
+            <div class="flex justify-center order-last ">
+                <button class="min-w-10 min-h-10 bg-primary-500 m-2 rounded-full text-4xl text-text-50" onclick="addElement(event.target)">+</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
